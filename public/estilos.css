@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: white;
+}
+
+.navbar{
+    background-color: pink;
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+}
+
+a{
+    color: white;
+}
+
+a:hover{
+    color: black;
+}
+
+a:active{
+    color: black;
+}
+
+.colordrop:hover{
+    color: black;
+}
+
+.colordrop:focus{
+    color: black;
+}
+
+.colordrop{
+    color: white;
+}
+
+li a:hover{
+    color: black;
+}
+
+ul:hover{
+    color: black;
+}
