@@ -12,10 +12,11 @@ body{
 }
 
 .navbar{
-    background-color: pink;
+    background-color: rgb(235, 47, 79);
     font-size: 30px;
     color: white;
     text-decoration: none;
+    box-shadow: 50px;
 }
 
 a{
@@ -27,11 +28,23 @@ a:hover{
 }
 
 a:active{
-    color: black;
+    color: white;
 }
 
 .colordrop:hover{
     color: black;
+}
+
+.boton{
+    color: white;
+    border: 1px solid black;
+    bottom: 20px;
+    right: 20px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 10%;
+    box-shadow: 0 0 1px #333;
+    font-size: 23px;
 }
 
 .colordrop:focus{
@@ -43,9 +56,19 @@ a:active{
 }
 
 li a:hover{
-    color: black;
+    color: white;
 }
 
-ul:hover{
-    color: black;
+.carritoimg{
+    width: 35px;
+    height: 35px;
+    padding: 1px;
+    background-color: rgb(235, 47, 79);
+}
+
+.carritoespacio{
+    background-color: rgb(235, 47, 79);
+    border: 0px;
+    margin-right: 15px;
+    margin-bottom: 1px;
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import CartWidget from '../CartWidget';
 
 const NavBar = () => {
     return (
@@ -50,6 +51,7 @@ const NavBar = () => {
                 <a className="nav-link colordrop" href="#inicio" role="button" aria-expanded="false">Promos</a>
             </li>
             </ul>
+            <button className='carritoespacio'><CartWidget/></button>
             <form className="d-flex" role="search">
             <input className="form-control me-2" type="search" placeholder="Buscar Producto..." aria-label="Search"></input>
             <button className="btn boton" type="submit">Buscar</button>
