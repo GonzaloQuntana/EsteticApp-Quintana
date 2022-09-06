@@ -23,8 +23,8 @@ const ItemCount = ({stock, initial, onAdd}) => {
 
     return (
         <div>
-            <span><button onClick={handleRemove}>-</button>{count}<button onClick={handleAdd}>+</button></span><br />
-            <button onClick={()=>onAdd(count)}>Agregar al Carrito</button>
+            <span><button className='BotonesSR' onClick={handleRemove}>-</button> <span className='NumeroSR'> {count} </span> <button className='BotonesSR' onClick={handleAdd}>+</button></span><br />
+            <button className='BotonAgregarC' onClick={()=>onAdd(count)}>Agregar al Carrito</button>
         </div>
     )
 }

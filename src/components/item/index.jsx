@@ -4,9 +4,9 @@ const Item = ({product}) => {
     return (
         <div>
         <div className="card producto">
-        <img src="{product.image}" className="card-img-top" alt="Maquillaje"></img>
+        <img src="{product.image}" className="card-img-top" alt="Maquillaje"/>
         <div className="card-body">
-        <h5 className="card-title">{product.name}</h5>
+        <h5 className="card-title">{product.title}</h5>
         <p className="card-text">${product.price}</p>
         <a href="index.html" className="btn btn-primary">Agregar al Carrito</a>
   </div>

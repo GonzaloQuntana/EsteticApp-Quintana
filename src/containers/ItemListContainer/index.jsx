@@ -10,14 +10,15 @@ const [productos, setProductos] = useState([])
 
         ( async ()=> {
 
-            const obtenerProductos = new Promise ((accept, reject)=> {
+            /*const obtenerProductos = new Promise ((accept, reject)=> {
                 setTimeout(()=> {
                     accept(products)
                 }, 3000);
-            })        
+            })        */
     
          try {
-            const productos = await obtenerProductos;
+            const response = await fetch("https://fakestoreapi.com/products");
+            const productos = await response.json();
             setProductos(productos)
          } catch (error) {
     
@@ -28,8 +29,7 @@ const [productos, setProductos] = useState([])
 
     return (
         <div className="Item-List-container">
-            <ItemList products={productos}
-            />       
+            <ItemList products={productos}/>       
         </div>
     )
 }

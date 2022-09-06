@@ -1,6 +1,7 @@
 import NavBar from "./components/NavBar";
 import ItemListContainer from "./containers/ItemListContainer";
 import ItemCount from "./components/ItemCount";
+import ItemDetailContainer from "./containers/ItemDetailContainer";
 
 function App() {
 
@@ -14,8 +15,9 @@ function App() {
     <NavBar 
     categories={categorias} 
     />
-    <ItemListContainer greeting={"Bienvenidos a nuestra app"}/>
-    <ItemCount initial={1} stock={10} onAdd={agregarAlCarrito}/>
+    {/*<ItemListContainer greeting={"Bienvenidos a nuestra app"}/>*/}
+    {/*<ItemCount initial={1} stock={10} onAdd={agregarAlCarrito}/>*/}
+    <ItemDetailContainer/>
     <div className="App">
     </div>
     </>
