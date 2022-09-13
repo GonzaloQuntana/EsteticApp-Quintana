@@ -1,26 +1,32 @@
 import NavBar from "./components/NavBar";
 import ItemListContainer from "./containers/ItemListContainer";
-import ItemCount from "./components/ItemCount";
 import ItemDetailContainer from "./containers/ItemDetailContainer";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+import NotFound from "./components/NotFound/NotFound";
 
 function App() {
 
   const categorias = ["Maquilaje", "Nails", "Cosmetica Capilar", "Mascarillas y Ciudados", "Otros", "Combos"]
   
-  const agregarAlCarrito = (cantidad) => {
-}
+/*  const agregarAlCarrito = (cantidad) => {
+}*/
 
   return (
-    <>
+    <BrowserRouter>
     <NavBar 
     categories={categorias} 
     />
-    {/*<ItemListContainer greeting={"Bienvenidos a nuestra app"}/>*/}
-    {/*<ItemCount initial={1} stock={10} onAdd={agregarAlCarrito}/>*/}
-    <ItemDetailContainer/>
-    <div className="App">
-    </div>
-    </>
+    <Routes>
+    <Route path="/" element={<ItemListContainer/>}/>
+    <Route path="/category/:categoryId" element={<ItemListContainer/>}/>
+    <Route path="/detail/:productId" element={<ItemDetailContainer/>}/>
+    <Route path="*" element={<NotFound/>}/>
+    </Routes>
+    </BrowserRouter>
   );
 }
 

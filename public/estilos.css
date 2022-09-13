@@ -105,3 +105,25 @@ li a:hover{
 .NumeroSR{
     font-size: 25px;
 }
+
+.producto{
+    width: 10rem;
+    display: flex;
+}
+
+.productos {
+    display: inline-block;
+    height: 100%;
+}
+
+.card {
+    margin-bottom: 250px;
+    height: 500px;
+    width: 450px;
+}
+
+.imagenCard{
+    height: 500px;
+    width: 100%;
+}
+
