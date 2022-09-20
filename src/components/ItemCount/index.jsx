@@ -1,5 +1,6 @@
 import React from 'react';
 import {useState} from 'react';
+import { useEffect } from 'react';
 
 const ItemCount = ({stock, initial, onAdd}) => {
 
@@ -21,10 +22,23 @@ const ItemCount = ({stock, initial, onAdd}) => {
     alert("No puedes poner menos de 1 producto");
 }};
 
+    const addCart = () => {
+        onAdd(count);
+        setCount(initial);
+    }
+
+    useEffect(() => {
+
+    }, []);
+
+    useEffect(() => {
+
+    }, [count]);
+
     return (
         <div>
             <span><button className='BotonesSR' onClick={handleRemove}>-</button> <span className='NumeroSR'> {count} </span> <button className='BotonesSR' onClick={handleAdd}>+</button></span><br />
-            <button className='BotonAgregarC' onClick={()=>onAdd(count)}>Agregar al Carrito</button>
+            <button className='BotonAgregarC' onClick={addCart}>Agregar al Carrito</button>
         </div>
     )
 }
