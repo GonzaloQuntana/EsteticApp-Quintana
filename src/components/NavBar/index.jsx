@@ -26,7 +26,7 @@ const NavBar = () => {
                 <Link className="nav-link colordrop" to="/category/jewelery" role="button" aria-expanded="false">Jewelery</Link>
             </li>
             </ul>
-            <button className='carritoespacio'><CartWidget/></button>
+                <Link rel="stylesheet" to="/cart"><button className='carritoespacio'><CartWidget/></button></Link>
             <form className="d-flex" role="search">
             <input className="form-control me-2" type="search" placeholder="Buscar Producto..." aria-label="Search"></input>
             <button className="btn boton" type="submit">Buscar</button>

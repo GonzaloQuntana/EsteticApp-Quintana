@@ -24,24 +24,31 @@ export const Shop = createContext(null);
             const cartModificado = [...cart, item]
             setCart(cartModificado)
         }
-    }
+    };
 
     const isInCart = (id) => {
         return cart.some(product => product.id === id)
-    }
+    };
 
-    const removeItem = (item) => {
-
-    }
+    const removeItem = (id) => {
+            cart.splice(
+            cart.findIndex((product) => product.id === id),
+            1
+            );
+            setCart([...cart]);
+        };
 
     const clearCart = () => {
-        
-    }
+        setCart([]);
+    };
 
     return (
-        <Shop.Provider value={{cart, addItem}}>
+        <Shop.Provider value={{cart, addItem, removeItem, clearCart}}>
             {children}
         </Shop.Provider>
     )
- }
+}
+
+
+ export default ShopProvider;
  

@@ -67,6 +67,14 @@ li a:hover{
     color: white;
 }
 
+.carritoimg:hover{
+    width: 35px;
+    height: 35px;
+    padding: 1px;
+    background-color: rgb(239, 72, 100);
+    color: black;
+}
+
 .carritoespacio{
     background-color: rgb(239, 72, 100);
     border: 0px;
@@ -125,5 +133,80 @@ li a:hover{
 .imagenCard{
     height: 500px;
     width: 100%;
+}
+
+.wholeCart {
+    height: 100%;
+}
+
+.titleCartContainer {
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+    margin: 1rem;
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+.CartContainer {
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+}
+
+.totals {
+    margin: 1rem;
+    padding: 1rem;
+    font-family: 'Balsamiq Sans', cursive;
+    font-size: 1rem;
+    text-align: start;
+}
+
+.dataContainer {
+    display: grid;
+    grid-template-columns: repeat(6, auto);
+    text-align: center;
+    margin: 2rem;
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+.emptyCart {
+    padding: 0.5rem;
+    margin: 1rem;
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+.cartText {
+    padding: 0.4rem;
+    font-size: 1rem;
+}
+
+.cartButton {
+    border-radius: 7%;
+    border: 1px solid rgb(239, 72, 100);
+    background-color: rgb(239, 72, 100);
+    color: white;
+    font-family: 'Balsamiq Sans', cursive;
+    padding: 0.4rem;
+    margin: 0.5rem;
+}
+
+.deleteButton {
+    border-radius: 7%;
+    border: 1px solid rgb(239, 72, 100);
+    background-color: rgb(239, 72, 100);
+    color: white;
+    font-family: 'Balsamiq Sans', cursive;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.cartButton:hover {
+    border: 1px solid  rgb(229, 155, 167);
+    color:  white;
+    background-color: rgb(229, 155, 167);
+}
+
+.deleteButton:hover {
+    border: 1px solid  rgb(229, 155, 167);
+    color:  white;
+    background-color: rgb(229, 155, 167);
 }
 
