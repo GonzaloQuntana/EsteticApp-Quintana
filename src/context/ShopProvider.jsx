@@ -30,12 +30,9 @@ export const Shop = createContext(null);
         return cart.some(product => product.id === id)
     };
 
-    const removeItem = (id) => {
-            cart.splice(
-            cart.findIndex((product) => product.id === id),
-            1
-            );
-            setCart([...cart]);
+    const removeItem = (itemToRemove) => {
+            const filteredProducts = cart.filter(item => item !== itemToRemove)
+            setCart(filteredProducts)
         };
 
     const clearCart = () => {

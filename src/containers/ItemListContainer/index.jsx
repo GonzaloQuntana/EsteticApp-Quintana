@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import ItemList from '../../components/itemList';
 //import { products } from '../../data/products';
 import { useParams } from 'react-router-dom';
+import { db } from '../../firebase/config';
+import { collection, query, where, getDocs } from "firebase/firestore";
 
-const ItemListContainer = ({greeting}) => {
+const ItemListContainer = ({ greeting }) => {
 
 const [productos, setProductos] = useState([])
 
@@ -14,16 +16,22 @@ const {categoryId} = useParams();
         ( async ()=> {
     
          try {
-            if (categoryId){
-                const response = await fetch("https://fakestoreapi.com/products/category/" + categoryId);
-                const productos = await response.json();
-                setProductos(productos)
-            }
-            else {
-                const response = await fetch("https://fakestoreapi.com/products");
-                const productos = await response.json();
-                setProductos(productos)
-            };
+                
+                const q = categoryId ? 
+                    query(collection(db, "products"), where("category", "==", categoryId))
+                    :
+                    query(collection(db, "products"));
+
+                const querySnapshot = await getDocs(q);
+                
+                const productosFirebase = [];
+    
+                querySnapshot.forEach((doc) => {
+                  // doc.data() is never undefined for query doc snapshots
+                  productosFirebase.push({id: doc.id, ...doc.data})
+                });
+                
+                setProductos(productosFirebase)
          } catch (error) {
     
          }
