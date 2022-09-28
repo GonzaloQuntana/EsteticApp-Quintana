@@ -27,8 +27,7 @@ const {categoryId} = useParams();
                 const productosFirebase = [];
     
                 querySnapshot.forEach((doc) => {
-                  // doc.data() is never undefined for query doc snapshots
-                  productosFirebase.push({id: doc.id, ...doc.data})
+                  productosFirebase.push({id: doc.id, ...doc.data()})
                 });
                 
                 setProductos(productosFirebase)

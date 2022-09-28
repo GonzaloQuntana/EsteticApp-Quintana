@@ -1,13 +1,51 @@
 import React from 'react'
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import Item from '../../components/item';
 import { Shop } from '../../context/ShopProvider';
+import { DataGrid } from '@mui/x-data-grid';
+import { Button } from '@mui/material';
+import ordenGenerada from '../../services/generarOrden';
 
 const Cart = () => {
 
-    const {cart, removeItem, clearCart} = useContext(Shop);
+    const {cart, removeItem, clearCart, total} = useContext(Shop);
+    
+    const renderImage = (image) => {
+        return(
+            <img src={image.value} alt="cart-product" style={{height: '120px'}} />
+        )
+    };
 
+    const renderRemoveButton = (item) => {
+        const product = item.value;
+        return (
+            <Button
+                onClick={() => removeItem(product)}
+                variant="contained"
+                color="error"
+            >
+                X
+            </Button>
+        );
+    };
+
+    const handleBuy = () => {
+        const importeTotal = total();
+        const orden = ordenGenerada("Sebastian", "sebas@live.com", 123466, cart, importeTotal)
+    }
+
+
+
+    const columns = [
+        { field: 'image', headerName: 'Imagen', width: 250, renderCell: renderImage},
+        { field: 'title', headerName: 'Producto', width: 400 },
+        { field: 'quantity', headerName: 'Cantidad', width: 100 },
+        {
+            field: 'remove',
+            headerName: '',
+            renderCell: renderRemoveButton,
+            width: 120,
+        },
+    ];
     const filas = []
     cart.forEach(item => {
         filas.push({
@@ -17,32 +55,20 @@ const Cart = () => {
             quantity: item.quantity
         })
     })
-  return(
-    <div className="CartContainer">
-    <div className="wholeCart">
-    <div className="buttonBack">
-        <Link to="/">
-        <button className="cartButton">Volver</button>
-        </Link>
-        <button className="cartButton" onClick={clearCart}>Borrar todo</button>
-    </div>
-    <div className="titleCartContainer"><h3>Tu carrito</h3></div>
-                <div className="dataContainer">
-                    <p className="cartText">Id de tu producto: {Item.id} </p>
-                    <p className="cartText">Cantidad: {Item.qty}</p>
-                    <p className="cartText">Título: {Item.title}</p>
-                    <p className="cartText">Precio por unidad: ${Item.price}</p>
-                    <p className="cartText">Precio Total: $</p>
-                    <button className="deleteButton" onClick={removeItem}>X</button>
-                </div>      
-    </div>
-    <div className="totals">
-        <p>Cantidad de Productos:</p>
-        <p></p>
-        <p>Total Compra:</p>
-    </div>
-    </div>
-)
-}
+    
+      return (
+        <div style={{ height: 400, width: '100%' }}>
+          <DataGrid
+            rows={filas}
+            columns={columns}
+            pageSize={10}
+            rowsPerPageOptions={[10]}
+            rowHeight={100}
+          />
+            <Button onClick={clearCart} color="error" variant="outlined">Limpiar Carrito</Button>
+            <Button onClick={handleBuy}>Confirmar Compra</Button>
+        </div>
+      );
+    };
 
 export default Cart

@@ -9,14 +9,14 @@ import {
 import NotFound from "./components/NotFound/NotFound";
 import Cart from "./containers/CartContainer";
 import { ShopProvider } from "./context/ShopProvider";
-import { useEffect } from "react";
-import algoritmoGuardadoAutomatico from "./services/guardarProductos";
+//import { useEffect } from "react";
+//import algoritmoGuardadoAutomatico from "./services/guardarProductos";
 
 function App() {
 
-  useEffect(()=> {
-    algoritmoGuardadoAutomatico()
-  }, [])
+  //useEffect(()=> {
+  //  algoritmoGuardadoAutomatico()
+  //}, [])
   
 /*  const agregarAlCarrito = (cantidad) => {
 }*/
