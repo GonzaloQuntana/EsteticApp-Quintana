@@ -1,6 +1,7 @@
 import React from 'react';
 import {useState} from 'react';
 import { useEffect } from 'react';
+import Swal from 'sweetalert2';
 
 const ItemCount = ({stock, initial, onAdd}) => {
 
@@ -11,7 +12,12 @@ const ItemCount = ({stock, initial, onAdd}) => {
             setCount(count+1);
         }
     else {
-    alert("No hay suficiente stock");
+        Swal.fire({
+            icon: 'error',
+            title: 'No hay suficiente stock',
+            showConfirmButton: false,
+            timer: 1000
+          })
 }};
 
     const handleRemove = () => {
@@ -19,7 +25,12 @@ const ItemCount = ({stock, initial, onAdd}) => {
             setCount(count-1);
         }
     else {
-    alert("No puedes poner menos de 1 producto");
+        Swal.fire({
+            icon: 'error',
+            title: 'No puedes poner menos de 1 producto',
+            showConfirmButton: false,
+            timer: 1000
+          })
 }};
 
     const addCart = () => {

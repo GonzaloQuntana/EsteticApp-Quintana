@@ -4,6 +4,10 @@ import { Shop } from '../../context/ShopProvider';
 import { DataGrid } from '@mui/x-data-grid';
 import { Button } from '@mui/material';
 import ordenGenerada from '../../services/generarOrden';
+import { doc, updateDoc, getDoc } from "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from '../../firebase/config';
+import Swal from 'sweetalert2';
 
 const Cart = () => {
 
@@ -28,9 +32,26 @@ const Cart = () => {
         );
     };
 
-    const handleBuy = () => {
+    const handleBuy = async () => {
         const importeTotal = total();
         const orden = ordenGenerada("Sebastian", "sebas@live.com", 123466, cart, importeTotal)
+
+        cart.forEach(async (productoEnCarrito)=> {
+            const productRef = doc(db, "products", productoEnCarrito.id);
+            const productSnap = await getDoc(productRef);
+            await updateDoc(productRef, {
+            stock: productSnap.data().stock - productoEnCarrito.quantity,
+            });
+
+        })
+
+        const docRef = await addDoc(collection(db, "orders"), orden);
+        Swal.fire({
+            icon: 'success',
+            title: `Orden Generada con ID: ${docRef.id}`,
+            showConfirmButton: false,
+            timer: 2000
+          })
     }
 
 

@@ -15,41 +15,59 @@ const NavBar = () => {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item dropdown">
                     <Link className="nav-link dropdown-toggle colordrop" to="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Maquillaje
+                    MAQUILLAJE
                     </Link>
                     <ul className="dropdown-menu colordrop" aria-labelledby="navbarDropdown">
-                    <li><Link className="dropdown-item" to="/category/Bases - Polvos">Bases - Polvos</Link></li>
-                    <li><Link className="dropdown-item" to="/category/Correctores">Correctores</Link></li>
-                    <li><Link className="dropdown-item" to="/category/Labiales">Labiales</Link></li>
-                    <li><Link className="dropdown-item" to="/category/Cosmetica Capilar">Cosmetica Capilar</Link></li>
-                    <li><Link className="dropdown-item" to="/category/Mascarillas y Cuidados">Mascarillas y Cuidados</Link></li>
-                    <li><Link className="dropdown-item" to="/category/Otros">Otros</Link></li>
+                    <li><Link className="dropdown-item" to="/category/Bases - Polvos">BASES - POLVOS</Link></li>
+                    <li><Link className="dropdown-item" to="/category/Correctores">CORRECTORES</Link></li>
+                    <li><Link className="dropdown-item" to="/category/Labiales">LABIALES</Link></li>
+                    <li><Link className="dropdown-item" to="/category/Sombras">SOMBRAS</Link></li>
+                    <li><Link className="dropdown-item" to="/category/Brochas - Esponjas">BROCHAS - ESPONJAS</Link></li>
+                    <li><Link className="dropdown-item" to="/category/Delineadores">DELINEADORES</Link></li>
+                    <li><Link className="dropdown-item" to="/category/Pestañas">PESTAÑAS</Link></li>
+                    <li><Link className="dropdown-item" to="/category/Cejas">CEJAS</Link></li>
+                    <li><Link className="dropdown-item" to="/category/Glitter">GLITTER</Link></li>
+                    <li><Link className="dropdown-item" to="/category/Primer - Fijador">PRIMER - FIJADOR</Link></li>
+                    <li><Link className="dropdown-item" to="/category/Contornos">CONTORNOS</Link></li>
+                    <li><Link className="dropdown-item" to="/category/Iluminadores">ILUMINADORES</Link></li>
+                    <li><Link className="dropdown-item" to="/category/Rubores">RUBORES</Link></li>
                     </ul>
                 </li>
             <li className="nav-item dropdown colordrop">
                 <Link className="nav-link dropdown-toggle colordrop" to="/category/women's cloting" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Women Clothing
+                SKINCARE
                 </Link>
                 <ul className="dropdown-menu colordrop" aria-labelledby="navbarDropdown">
-                <li><Link className="dropdown-item" to="/">Action</Link></li>
-                <li><Link className="dropdown-item" to="/">Another action</Link></li>
-                <li><hr className="dropdown-divider"></hr></li>
-                <li><Link className="dropdown-item" to="/">Something else here</Link></li>
+                    <li><Link className="dropdown-item" to="/category/Accesorios">ACCESORIOS</Link></li>
+                    <li><Link className="dropdown-item" to="/category/Esponjas y Aplicadores">ESPONJAS Y APLICADORES</Link></li>
+                    <li><Link className="dropdown-item" to="/category/Blanqueadores de Dientes">BLANQUEADORES DE DIENTES</Link></li>
+                    <li><Link className="dropdown-item" to="/category/Mascarillas y Serum">MASCARILLAS Y SERUM</Link></li>
+                    <li><Link className="dropdown-item" to="/category/Cremas">CREMAS</Link></li>
+                    <li><Link className="dropdown-item" to="/category/Desmaquillantes">DESMAQUILLANTES</Link></li>
                 </ul>
             </li>
             <li className="nav-item {/*dropdown colordrop">
                 <Link className="nav-link dropdown-toggle colordrop" to="/category/electronics" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Electronics
+                NAILS
                 </Link>
                 <ul className="dropdown-menu colordrop" aria-labelledby="navbarDropdown">
-                <li><Link className="dropdown-item" to="/">Action</Link></li>
-                <li><Link className="dropdown-item" to="/">Another action</Link></li>
-                <li><hr className="dropdown-divider"></hr></li>
-                <li><Link className="dropdown-item" to="/">Something else here</Link></li>
+                    <li><Link className="dropdown-item" to="/category/Ciudados Manos y Pies">CUIDADOS MANOS Y PIES</Link></li>
+                    <li><Link className="dropdown-item" to="/category/Esmaltes">ESMALTES</Link></li>
+                    <li><Link className="dropdown-item" to="/category/Decoracion">DECORACION</Link></li>
+                    <li><Link className="dropdown-item" to="/category/Herramientas">HERRAMIENTAS</Link></li>
+                    <li><Link className="dropdown-item" to="/category/Esculpidas">ESCULPIDAS</Link></li>
+                    <li><Link className="dropdown-item" to="/category/Esmaltado Semi y Cabinas">ESMALTADO SEMI Y CABINAS</Link></li>
                 </ul>
             </li>
-            <li className="nav-item">
-                <Link className="nav-link colordrop" to="/category/jewelery" role="button" aria-expanded="false">Jewelery</Link>
+            <li className="nav-item {/*dropdown colordrop">
+                <Link className="nav-link dropdown-toggle colordrop" to="/category/electronics" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                ACCESORIOS
+                </Link>
+                <ul className="dropdown-menu colordrop" aria-labelledby="navbarDropdown">
+                    <li><Link className="dropdown-item" to="/category/Fragancias">FRAGANCIAS</Link></li>
+                    <li><Link className="dropdown-item" to="/category/Porta Cosmeticos">PORTA COSMETICOS</Link></li>
+                    <li><Link className="dropdown-item" to="/category/Utilidades">UTILIDADES</Link></li>
+                </ul>
             </li>
             </ul>
             <button className='carritoespacio'><Link to="/cart"><CartWidget/></Link></button>
