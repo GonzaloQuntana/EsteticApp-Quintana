@@ -7,7 +7,7 @@ const NavBar = () => {
         <div>
         <nav className="navbar navbar-expand-lg">
         <div className="container-fluid">
-        <Link id="inicio" to="/"><img src="logo.png" alt="Maquillaje" className="navbar-brand"></img></Link>
+        <Link id="inicio" to="/"><img src="logo.png" alt="Maquillaje" className="navbar-brand navimagen"></img></Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
         </button>
@@ -17,7 +17,7 @@ const NavBar = () => {
                     <Link className="nav-link dropdown-toggle colordrop" to="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     MAQUILLAJE
                     </Link>
-                    <ul className="dropdown-menu colordrop" aria-labelledby="navbarDropdown">
+                    <ul className="dropdown-menu colordrop form-inline" aria-labelledby="navbarDropdown">
                     <li><Link className="dropdown-item" to="/category/Bases - Polvos">BASES - POLVOS</Link></li>
                     <li><Link className="dropdown-item" to="/category/Correctores">CORRECTORES</Link></li>
                     <li><Link className="dropdown-item" to="/category/Labiales">LABIALES</Link></li>
