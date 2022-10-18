@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    align-items: center;
 }
 
 html {
@@ -9,6 +10,7 @@ html {
 
 body{
     background-color: rgb(246, 246, 243);
+    height: 100%;
 }
 
 .navbar{
@@ -122,41 +124,35 @@ li a:hover{
     display: flex;
 }
 
-.container{
-    display: inline;
-    font-weight: bold;
-    font-size: 10px;
-    align-items: center;
-    margin: 0 0;
-}
-
 .card{
-    width: 210px;
-    font-weight: bold;
-    font-size: 13px;
-    height: 280px;
+    width: 200px;
+    height: 300px;
     display: inline-block;
     border: 1px double;
     border-color: rgb(185, 187, 194);
     background-color: white;
     text-align: center;
     margin: 10px;
-}
-
-.card:hover{
-    border: solid rgba(0, 0, 0, 0.298);
+    padding: auto;
 }
 
 .precio{
-    font-size: 15px;
+    font-size: 14px;
     font-weight: bold;
 }
 
 .image{
-    height: 150px;
-    width: 150px;
+    height: 120px;
+    width: 120px;
     text-align: center;
     align-items: center;
+}
+
+.imagen{
+    height: 500px;
+    width: 500px;
+    float: left;
+    margin-right: 20px;
 }
 
 .envio{

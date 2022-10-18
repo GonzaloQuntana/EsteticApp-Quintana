@@ -51,7 +51,7 @@ const NavBar = () => {
                 NAILS
                 </Link>
                 <ul className="dropdown-menu colordrop" aria-labelledby="navbarDropdown">
-                    <li><Link className="dropdown-item" to="/category/Ciudados Manos y Pies">CUIDADOS MANOS Y PIES</Link></li>
+                    <li><Link className="dropdown-item" to="/category/Cuidados Manos y Pies">CUIDADOS MANOS Y PIES</Link></li>
                     <li><Link className="dropdown-item" to="/category/Esmaltes">ESMALTES</Link></li>
                     <li><Link className="dropdown-item" to="/category/Decoracion">DECORACION</Link></li>
                     <li><Link className="dropdown-item" to="/category/Herramientas">HERRAMIENTAS</Link></li>

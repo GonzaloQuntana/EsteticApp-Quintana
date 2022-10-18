@@ -19,6 +19,7 @@ export const Initial = () => {
         </p>
       </div>
       <div>
+        <br /><br /><br />
       <ItemListContainer/>
       </div>
     </div>

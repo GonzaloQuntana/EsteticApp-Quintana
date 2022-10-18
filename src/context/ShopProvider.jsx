@@ -31,7 +31,7 @@ export const Shop = createContext(null);
     };
 
     const removeItem = (itemToRemove) => {
-            const filteredProducts = cart.filter(item => item !== itemToRemove)
+            const filteredProducts = cart.filter(item => item !== itemToRemove);
             setCart(filteredProducts)
         };
 

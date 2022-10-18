@@ -25,13 +25,13 @@ const ItemDetail = ({product}) => {
   return (
     <div>
         <br />
-        <img className='image' src={product.image} alt='producto'/>    
+        <img className='imagen' src={product.image} alt='producto'/>    
         <br /><br /><br /><br /><br />
         <h2 className='TituloProducto'>
         {product.title}
         </h2><br />
         <h4>{product.description}</h4>
-        <div className='ContadorCarrito'>
+        <div className='ContadorCarrito'><br /><br />
          {!qty ? (<ItemCount stock={product.stock} initial={1} onAdd={addCart}/>) : (
           <button className='BotonAgregarC' onClick={handleFinish}>Finalizar Compra</button>
          )}
