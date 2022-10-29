@@ -1,22 +1,25 @@
-import React from 'react'
-import { useContext } from 'react';
-import { Shop } from '../../context/ShopProvider';
-import { DataGrid } from '@mui/x-data-grid';
-import { Button } from '@mui/material';
-import ordenGenerada from '../../services/generarOrden';
-import { doc, updateDoc, getDoc } from "firebase/firestore";
+import React, { useContext, useState } from "react";
+import { Shop } from "../../context/ShopProvider";
+import ordenGenerada from "../../services/generarOrden";
+import { DataGrid } from "@mui/x-data-grid";
+import { Button, CircularProgress } from "@mui/material";
 import { collection, addDoc } from "firebase/firestore";
-import { db } from '../../firebase/config';
-import Swal from 'sweetalert2';
+import { doc, updateDoc, getDoc } from "firebase/firestore";
+import { db } from "../../firebase/config";
 
 const Cart = () => {
+    const { cart, removeItem, clearCart, total } = useContext(Shop);
 
-    const {cart, removeItem, clearCart, total} = useContext(Shop);
-    
+    const [loading, setLoading] = useState(false);
+
     const renderImage = (image) => {
-        return(
-            <img src={image.value} alt="cart-product" style={{height: '120px'}} />
-        )
+        return (
+            <img
+                src={image.value}
+                alt="cart-product"
+                style={{ height: 120, width: 250 }}
+            ></img>
+        );
     };
 
     const renderRemoveButton = (item) => {
@@ -27,69 +30,96 @@ const Cart = () => {
                 variant="contained"
                 color="error"
             >
-                X
+                Remover
             </Button>
         );
     };
 
     const handleBuy = async () => {
+        setLoading(true)
         const importeTotal = total();
-        const orden = ordenGenerada("Sebastian", "sebas@live.com", 123466, cart, importeTotal)
+        const orden = ordenGenerada(
+            "Sebastián",
+            "sebas@live.com",
+            11111111111,
+            cart,
+            importeTotal
+        );
 
-        cart.forEach(async (productoEnCarrito)=> {
+        const docRef = await addDoc(collection(db, "orders"), orden);
+
+        cart.forEach(async (productoEnCarrito) => {
             const productRef = doc(db, "products", productoEnCarrito.id);
             const productSnap = await getDoc(productRef);
             await updateDoc(productRef, {
-            stock: productSnap.data().stock - productoEnCarrito.quantity,
+                stock: productSnap.data().stock - productoEnCarrito.quantity,
             });
-
-        })
-
-        const docRef = await addDoc(collection(db, "orders"), orden);
-        Swal.fire({
-            icon: 'success',
-            title: `Orden Generada con ID: ${docRef.id}`,
-            showConfirmButton: false,
-            timer: 2000
-          })
-    }
-
-
+        });
+        setLoading(false);
+        alert(
+            `¡Gracias por su compra! Se generó la orden generada con ID: ${docRef.id}`
+        );
+    };
 
     const columns = [
-        { field: 'image', headerName: 'Imagen', width: 250, renderCell: renderImage},
-        { field: 'title', headerName: 'Producto', width: 400 },
-        { field: 'quantity', headerName: 'Cantidad', width: 100 },
         {
-            field: 'remove',
-            headerName: '',
+            field: "image",
+            headerName: "Imagen",
+            width: 250,
+            renderCell: renderImage
+        },
+        { field: "title", headerName: "Producto", width: 450 },
+        { field: "quantity", headerName: "Cantidad", width: 80 },
+        { field: "price", headerName: "Precio", width: 450 },
+        {
+            field: "remove",
+            headerName: "Remover",
             renderCell: renderRemoveButton,
-            width: 120,
+            width: 120
         },
     ];
-    const filas = []
-    cart.forEach(item => {
+
+    const filas = [];
+    cart.forEach((item) => {
         filas.push({
             id: item.id,
             image: item.image,
             title: item.title,
-            quantity: item.quantity
-        })
-    })
-    
-      return (
-        <div style={{ height: 400, width: '100%' }}>
-          <DataGrid
-            rows={filas}
-            columns={columns}
-            pageSize={10}
-            rowsPerPageOptions={[10]}
-            rowHeight={100}
-          />
-            <Button onClick={clearCart} color="error" variant="outlined">Limpiar Carrito</Button>
-            <Button onClick={handleBuy}>Confirmar Compra</Button>
-        </div>
-      );
-    };
+            quantity: item.quantity,
+            price: `$ ${item.price}`,
+            remove: item,
+        });
+    });
 
-export default Cart
+    return (
+        <div style={{ height: 400, width: "100%" }}>
+        <DataGrid
+          rows={filas}
+          columns={columns}
+          pageSize={5}
+          rowsPerPageOptions={[5]}
+            />
+        <h3>Total: $ {total}</h3>
+            <Button onClick={clearCart} color="error" variant="outlined">
+                Limpiar Carrito
+            </Button>
+            {loading ? (
+                <div
+                    style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        width: "100%"
+                    }}
+                >
+                    <CircularProgress/>
+                </div>
+            ) : (
+                <Button onClick={handleBuy}>Confirmar compra</Button>
+            )}
+        </div>
+    );
+};
+
+export default Cart;

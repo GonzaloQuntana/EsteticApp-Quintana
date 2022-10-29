@@ -1,12 +1,12 @@
 import { Rooting } from "./rutas";
-import { useEffect } from "react";
-import algoritmoGuardadoAutomatico from "./services/guardarProductos";
+//import { useEffect } from "react";
+//import algoritmoGuardadoAutomatico from "./services/guardarProductos";
 
 function App() {
 
-  useEffect(()=> {
-    algoritmoGuardadoAutomatico()
-  }, [])
+  //useEffect(()=> {
+  //  algoritmoGuardadoAutomatico()
+  //}, [])
 
   return (
     <Rooting/>
