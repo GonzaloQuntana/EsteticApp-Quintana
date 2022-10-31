@@ -8,9 +8,14 @@ import { doc, updateDoc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase/config";
 
 const Cart = () => {
-    const { cart, removeItem, clearCart, total } = useContext(Shop);
+    const { cart, removeItem, clearCart } = useContext(Shop);
 
     const [loading, setLoading] = useState(false);
+
+    const total = () => {
+        const total = cart.reduce((acc, producto) => acc += producto.quantity * producto.price, 0)
+        return total;
+    }
 
     const renderImage = (image) => {
         return (
